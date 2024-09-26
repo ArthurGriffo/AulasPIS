@@ -1,7 +1,10 @@
 from is_wire.core import Channel, Message
 
+print("ip default 10.10.1.24 ")
+ipbroker = input("Digite o ip do broker a ser utilizado:")
+
 #Conncet to the broker
-channel = Channel("amqp://guest:guest@10.10.0.91:5672")
+channel = Channel(f"amqp://guest:guest@{ipbroker}")
 
 message = Message()
 #message.body = "Arthur@abacaxi na pizza é crime".encode('latin1')

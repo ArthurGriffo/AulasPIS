@@ -2,12 +2,16 @@ from __future__ import print_function
 from is_wire.core import Channel, Subscription
 import time
 
-# Connect to the broker
-channel = Channel("amqp://guest:guest@10.10.0.91:5672")
+print("ip default 10.10.1.24 ")
+ipbroker = input("Digite o ip do broker a ser utilizado:")
 
+# Connect to the broker
+channel = Channel(f"amqp://guest:guest@{ipbroker}:5672")
+
+aluno = input("Digite o topico do aluno")
 # Subscribe to the desired topic(s)
 subscription = Subscription(channel)
-subscription.subscribe(topic="Aluno.Joab")
+subscription.subscribe(topic=f"Aluno.{aluno}")
 # ... subscription.subscribe(topic="Other.Topic")
 
 while True:
