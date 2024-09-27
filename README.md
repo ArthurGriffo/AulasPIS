@@ -28,12 +28,21 @@ git push #envia o repositorio local criado
 #A seguir um passo a passo dos comandos usados para criar um docker com os arquivos criados
 
 mkdir docker1 # cria uma pasta chamada docker1 separada para criar os arquivos docker
+
 nano Dockerfile # É necessário criar um arquivo chamado Dockerfile que vai conter a imagem docker ( a imagem está no repositorio vitorbermond/espaco1:pubsub no docker hub)
+
 mv sub_aula1.py ~/docker1 # no nosso caso foi necessario usar esse comando move para jogar os arquivos criados numa pasta separada junto ao dockerfile
+
 mv pub_aula1.py ~/docker1 # msm coisa
+
 docker build -t vitorbermond/espaco1:pubsub . # constroi a imagem docker usando os itens na pasta criada
+
 docker images # É possível ver as imagens docker criadas na maquina
+
 docker push vitorbermond/espaco1:pubsub # envia a imagem criada e construida para o docker hub
+
+docker run -ti vitorbermond/espaco1:pubsub # roda a imagem que acabamos de criar (os arquivos serao executados)
+
 
 para baixar a imagem em outro lugar é so usar pull em vez de push
 
